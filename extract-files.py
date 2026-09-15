@@ -81,6 +81,8 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
+    'system_ext/lib64/lib-imsvt.so': blob_fixup()
+        .replace_needed('vendor.qti.ImsRtpService-V2-ndk.so', 'vendor.qti.ImsRtpService-V1-ndk.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
